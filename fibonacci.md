@@ -46,4 +46,4 @@ The Fibonacci sequence is a type series where each number is the sum of the two 
     }
    ```
 
-   [Playground](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=20f6fefc0bb3d008d47745b3dd2f55c3)
+   [Playground](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=b6246317ad55d6a9b2e3373df3223398)

@@ -1,21 +1,24 @@
 ## Given two strings, write a program that efficiently finds the longest common subsequence
 
 ```
-fn lcs(s1: &str, s2: &str) -> String {
+fn lcs(s1: &String, s2: &String) -> String {
 
     if s1.len() == 0 || s2.len() == 0 {
         return "".to_string();
     }
 
-    let c1 = &s1[s1.len() - 1..s1.len()];
-    let c2 = &s2[s2.len() - 1..s2.len()];
+    let c1 = s1.chars().nth(s1.len() - 1).unwrap();
+    let c2 = s2.chars().nth(s2.len() - 1).unwrap();
+
+    let s1_short = &s1[0..s1.len() - 1].to_string();
+    let s2_short = &s2[0..s2.len() - 1].to_string();
 
     if c1 == c2 {
-        return format!("{}{}", lcs(&s1[0..s1.len() - 1], &s2[0..s2.len() - 1]), c1);
+        return format!("{}{}", lcs(s1_short, s2_short), c1);
     }
 
-    let m1 = lcs(&s1[0..s1.len()], &s2[0..s2.len() - 1]);
-    let m2 = lcs(&s1[0..s1.len() - 1], &s2[0..s2.len()]);
+    let m1 = lcs(&s1, s2_short);
+    let m2 = lcs(s1_short, &s2);
 
     if m2.len() > m1.len() {
         return m2;
@@ -25,11 +28,11 @@ fn lcs(s1: &str, s2: &str) -> String {
 }
 
 fn main() {
-    let s1 = "test";
-    let s2 = "rest";
-    let cs = lcs(s1, s2);
+    let s1 = "test".to_string();
+    let s2 = "rest".to_string();
+    let cs = lcs(&s1, &s2);
     println!("Longest comon sequence is: {}", cs);
 }
 ```
 
-[Playground](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=69ee8a66f05b603848663daa49fe2414)
+[Playground](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=28ef0020f6c9613c2888c9d7f112c328)
