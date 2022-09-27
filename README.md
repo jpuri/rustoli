@@ -9,3 +9,4 @@ Programming problems solved using Rust best practices
 5. [Quick sort](https://github.com/jpuri/Rustoli/blob/main/quick_sort.md)
 6. [Write function that translates a text to Pig Latin](https://github.com/jpuri/Rustoli/blob/main/pig_latin.md)
 7. [Binary search](https://github.com/jpuri/Rustoli/blob/main/binary_search.md)
+8. [nth Prime](https://github.com/jpuri/Rustoli/blob/main/nth_prime.md)
