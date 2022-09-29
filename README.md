@@ -11,3 +11,4 @@ Programming problems solved using Rust best practices
 7. [Binary search](https://github.com/jpuri/Rustoli/blob/main/binary_search.md)
 8. [Nth Prime](https://github.com/jpuri/Rustoli/blob/main/nth_prime.md)
 9. [Spiral Matrix](https://github.com/jpuri/Rustoli/blob/main/spiral_matrix.md)
+10. [Pascal Triangle](https://github.com/jpuri/Rustoli/blob/main/pascal_triangle.md)
