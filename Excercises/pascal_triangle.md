@@ -38,4 +38,4 @@ fn main() {
 }
 ```
 
-[Playground](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=df63fc8bb5ae37ae1048c72040efc123)
+[Playground](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=1a7eb6ecfe39e7e3153443a36d55fd02)
