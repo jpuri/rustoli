@@ -12,6 +12,7 @@ Programming problems solved using Rust best practices
 8. [Nth Prime](https://github.com/jpuri/Rustoli/blob/main/Excercises/nth_prime.md)
 9. [Spiral Matrix](https://github.com/jpuri/Rustoli/blob/main/Excercises/spiral_matrix.md)
 10. [Pascal Triangle](https://github.com/jpuri/Rustoli/blob/main/Excercises/pascal_triangle.md)
+11. [Scrabble Score](https://github.com/jpuri/Rustoli/blob/main/Excercises/scrabble_score.md)
 
 Deep dive into Rust language features:
 
