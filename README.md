@@ -13,6 +13,7 @@ Programming problems solved using Rust best practices
 9. [Spiral Matrix](https://github.com/jpuri/Rustoli/blob/main/Excercises/spiral_matrix.md)
 10. [Pascal Triangle](https://github.com/jpuri/Rustoli/blob/main/Excercises/pascal_triangle.md)
 11. [Scrabble Score](https://github.com/jpuri/Rustoli/blob/main/Excercises/scrabble_score.md)
+12. [Speak out numbers](https://github.com/jpuri/Rustoli/blob/main/Excercises/speak.md)
 
 Deep dive into Rust language features:
 
