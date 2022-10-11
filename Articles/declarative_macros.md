@@ -2,6 +2,22 @@
 
 Declarative macros enable defining syntax extensions in declarative way. They are also called as "macros by example".
 
+A simple example of `vec!` macro:
+
+```
+macro_rules! vec {
+    ( $( $x:expr ),* ) => {
+        {
+            let mut temp_vec = Vec::new();
+            $(
+                temp_vec.push($x);
+            )*
+            temp_vec
+        }
+    };
+}
+```
+
 ### `macro_rules`
 
 `macro_rules` can be used to declare a macro. Each macro declaration has a name and one or more rules. It has form:
@@ -22,13 +38,15 @@ Each rule has 2 parts:
 1. matcher: it describes the syntax that matches
 2. transcriber: it describes the syntax that will replace successful matches
 
-As Rust compiler encounters a macro invocation it tries to match the matcher pattern for each rule in lexical order. Pattern must match in entirety for the input to be considered a match.
+`(pattern) => {expression}`
+
+As Rust compiler encounters a macro invocation it tries to match the pattern for each rule in lexical order. Pattern must match in entirety for the input to be considered a match.
 
 ### Pattern Matching
 
 A few points about pattern matching:
 
-- Patterns in both matcher and transcriber can specify metavariables, these allow capture actual inputsthat are passed. These are written as `$<identifier>: <type>`. Type can be one of
+- Patterns in both matcher and transcriber can specify metavariables, these allow capture actual inputs that are passed. These are written as `$<identifier>: <type>`. Type can be one of
 
   1. `item`: an item like function, strust, module, etc
   2. `block`: a block
@@ -36,7 +54,7 @@ A few points about pattern matching:
   4. `pat`: a pattern
   5. `expr`: an expression
   6. `ty`: a type
-  7. `ident`: a identifier
+  7. `ident`: an identifier
   8. `path`: a path
   9. `meta`: a meta item
   10. `tt`: token tree
@@ -48,7 +66,7 @@ A few points about pattern matching:
   - `sep` is optional separator `;` and `,` are common.
   - `rep` is required repeat controller, it can be either `*` or `+`.
 
-- Both matcher and transcriber can contain literal tokens which are matched exactly. Anything not starting with a `$` is literal. For instance `fn`, `&self` here is literal
+- Both matcher and transcriber can contain literal tokens which are matched exactly. Anything not starting with a `$` is literal. For instance `fn`, `&self` here are literal
 
   `test! { fn get_x(&self) -> u32; }` will match macro
 
@@ -67,22 +85,6 @@ A few points about pattern matching:
   ```
 
 ### Example
-
-A simple example of `vec!` macro:
-
-```
-macro_rules! vec {
-    ( $( $x:expr ),* ) => {
-        {
-            let mut temp_vec = Vec::new();
-            $(
-                temp_vec.push($x);
-            )*
-            temp_vec
-        }
-    };
-}
-```
 
 A macro to create hashmap `hashmap!`:
 
