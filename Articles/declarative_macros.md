@@ -15,36 +15,20 @@ macro_rules! $name {
 }
 ```
 
+### Matcher and Transcriber
+
 Each rule has 2 parts:
 
 1. matcher: it describes the syntax that matches
 2. transcriber: it describes the syntax that will replace successful matches
 
-`($pattern) => {$expansion}`
+As Rust compiler encounters a macro invocation it tries to match the matcher pattern for each rule in lexical order. Pattern must match in entirety for the input to be considered a match.
 
-### Pattern matching
+### Pattern Matching
 
-As Rust compiler encounters a macro invocation it tries to match the pattern for each rule in lexical order. Pattern must match in entirety for the input to be considered a match. A few points about patterns:
+A few points about pattern matching:
 
-- Grouping token used when invoking pattern is not matched, for instance `test![]`, `test!()` or `test!{}` can be used to invoke macro
-
-  ```
-  macro_rules! test {
-      () => "test";
-  }
-  ```
-
-- Pattern can contain literal tokens which are matched exactly. Anything not starting with a `$` is literal. For instance
-
-  `test! { fn get_x(&self) -> u32; }` will match macro
-
-  ```
-  macro_rules! test {
-      ( fn $name:ident(&self) -> $ret:ty; ) => {};
-  }
-  ```
-
-- Matterns can specify metavariables which allow input to be matched. These are written as `$<identifier>: <type>`. Type can be one of
+- Patterns in both matcher and transcriber can specify metavariables, these allow capture actual inputsthat are passed. These are written as `$<identifier>: <type>`. Type can be one of
 
   1. `item`: an item like function, strust, module, etc
   2. `block`: a block
@@ -57,9 +41,30 @@ As Rust compiler encounters a macro invocation it tries to match the pattern for
   9. `meta`: a meta item
   10. `tt`: token tree
 
-- Patterns can contain repetitions while allow a sequence of tokens to be matched. It has general form `$ ( ... ) sep rep`.
-  `(...)` can contain any valid pattern. `sep` is optional separator `;` and `,` are common. And `rep` is required repeat controller, it can be either `*` or `+`.
-  A simple example is pattern used in vec! macro declaration below `( $( $x:expr ),* )`.
+- Both matcher and transcriber can contain repetitions which allow a sequence of tokens to be matched. It has general form `$ ( ... ) sep rep`.
+
+  - `$` is literal
+  - `(...)` can contain any valid pattern.
+  - `sep` is optional separator `;` and `,` are common.
+  - `rep` is required repeat controller, it can be either `*` or `+`.
+
+- Both matcher and transcriber can contain literal tokens which are matched exactly. Anything not starting with a `$` is literal. For instance `fn`, `&self` here is literal
+
+  `test! { fn get_x(&self) -> u32; }` will match macro
+
+  ```
+  macro_rules! test {
+      ( fn $name:ident(&self) -> $ret:ty; ) => {};
+  }
+  ```
+
+- Grouping token used when invoking macro is not matched, for instance `test![]`, `test!()` or `test!{}` can be used to invoke macro
+
+  ```
+  macro_rules! test {
+      () => "test";
+  }
+  ```
 
 ### Example
 
@@ -76,5 +81,17 @@ macro_rules! vec {
             temp_vec
         }
     };
+}
+```
+
+A macro to create hashmap `hashmap!`:
+
+```
+macro_rules! hashmap {
+    ($($($key: expr => $val: expr)+$(,)?)*) => {{
+        let mut map = std::collections::HashMap::new();
+        $($(map.insert($key, $val);)*)*
+        map
+    }}
 }
 ```
