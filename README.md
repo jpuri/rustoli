@@ -22,3 +22,4 @@ Deep dive into Rust language features:
 1. [Structs](https://github.com/jpuri/Rustoli/blob/main/Articles/structs.md)
 2. [Declarative Macros](https://github.com/jpuri/Rustoli/blob/main/Articles/declarative_macros.md)
 3. [Match](https://github.com/jpuri/Rustoli/blob/main/Articles/match.md)
+4. [Ownership](https://github.com/jpuri/Rustoli/blob/main/Articles/ownership.md)
