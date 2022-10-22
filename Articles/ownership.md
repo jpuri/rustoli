@@ -22,7 +22,7 @@ Consider example of simple string:
 //  str is invalid here
 ```
 
-As Stringi s created using `String::from` memory is allocated to it. It is owner by variable `str`, as variable `str` goes out of scope, memory is de-allocated.
+As String is created using `String::from` memory is allocated to it. It is owner by variable `str`, as variable `str` goes out of scope, memory is de-allocated.
 
 ### Moving
 
