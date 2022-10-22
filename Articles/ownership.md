@@ -39,4 +39,4 @@ Here, the value of `str1` is moved to `str2`, Trying yo access `str1` after assi
 
 Rust enforces that a value can have only one owner at any given time, this helps in avoiding double free error. Double free error can occur if a value is referenced by more than one owner and the runtime tries to free memory multiple times as those owners try to go out of scope.
 
-Values are moved when passed in funciton call or returned from functions.
+Values are also moved when passed in funciton call or returned from functions.
