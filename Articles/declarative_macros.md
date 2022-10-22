@@ -20,7 +20,7 @@ macro_rules! vec {
 
 ### `macro_rules`
 
-`macro_rules` can be used to declare a macro. Each macro declaration has a name and one or more rules. It has form:
+`macro_rules` is used to declare a macro. Each macro declaration has a name and one or more rules. It has form:
 
 ```
 macro_rules! $name {
