@@ -16,6 +16,7 @@ Programming problems solved using Rust best practices
 12. [Speak out Numbers](https://github.com/jpuri/Rustoli/blob/main/Excercises/speak.md)
 13. [Hashmap Macro](https://github.com/jpuri/Rustoli/blob/main/Excercises/hashmap_macro.md)
 14. [Acronym](https://github.com/jpuri/Rustoli/blob/main/Excercises/acronym.md)
+15. [Wordy Math](https://github.com/jpuri/Rustoli/blob/main/Excercises/wordy_math.md)
 
 Deep dive into Rust language features:
 
