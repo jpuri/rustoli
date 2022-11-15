@@ -25,3 +25,4 @@ Deep dive into Rust language features:
 3. [Match](https://github.com/jpuri/Rustoli/blob/main/Articles/match.md)
 4. [Ownership](https://github.com/jpuri/Rustoli/blob/main/Articles/ownership.md)
 5. [Borrowing](https://github.com/jpuri/Rustoli/blob/main/Articles/borrowing.md)
+6. [Enums](https://github.com/jpuri/Rustoli/blob/main/Articles/enum.md)
