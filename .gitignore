@@ -1,0 +1,7 @@
+/Projects/rust-wasm/target
+/Projects/rust-wasm/**/*.rs.bk
+/Projects/rust-wasm/Cargo.lock
+/Projects/rust-wasm/bin/
+/Projects/rust-wasm/pkg/
+/Projects/rust-wasm/wasm-pack.log
+/Projects/rust-wasm/www/node_modules
