@@ -26,3 +26,7 @@ Deep dive into Rust language features:
 4. [Ownership](https://github.com/jpuri/Rustoli/blob/main/Articles/ownership.md)
 5. [Borrowing](https://github.com/jpuri/Rustoli/blob/main/Articles/borrowing.md)
 6. [Enums](https://github.com/jpuri/Rustoli/blob/main/Articles/enum.md)
+
+Projects:
+
+1. [rust-wasm example](https://github.com/jpuri/rustoli/tree/main/Projects/rust-wasm)
