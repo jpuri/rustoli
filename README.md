@@ -29,4 +29,5 @@ Deep dive into Rust language features:
 
 Projects:
 
-1. [rust-wasm example](https://github.com/jpuri/rustoli/tree/main/Projects/rust-wasm)
+1. [rust-wasm hello world](https://github.com/jpuri/rustoli/tree/main/Projects/rust-wasm)
+2. [rust-wasm game of life](https://github.com/jpuri/rustoli/tree/main/Projects/game-of-life)
