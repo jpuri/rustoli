@@ -1,7 +1,7 @@
 /Projects/**/target
 /Projects/**/**/*.rs.bk
 /Projects/**/Cargo.lock
-/Projects/**/bin/
+/Projects/**/.bin/
 /Projects/**/pkg/
 /Projects/**/wasm-pack.log
 /Projects/**/www/node_modules
