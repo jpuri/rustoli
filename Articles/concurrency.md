@@ -35,3 +35,48 @@ fn main() {
 Call to `thread::sleep` forces the thread to stop execution allowing other threads to run. The turn that threads will take is not guaranteed.
 
 When the main thread of Rust completes all the spawned threads are shut down, whether or not they have finished running.
+
+#### Waiting for all Threads to Finish
+
+`JoinHandle` can be used to block the current thread from running until the thread represented by the handle terminates. Example:
+
+```
+use std::thread;
+use std::time::Duration;
+
+fn main() {
+    let handle = thread::spawn(|| {
+        for i in 1..10 {
+            println!("hi number {} from the spawned thread!", i);
+            thread::sleep(Duration::from_millis(1));
+        }
+    });
+
+    for i in 1..5 {
+        println!("hi number {} from the spawned thread!", i);
+        thread::sleep(Duration::from_millis(1));
+    }
+
+    handle.join().unwrap();
+}
+```
+
+#### Using `move` Closures
+
+Closures used for creating thread can not borrow variables from its environment, reason is that it is no guarantee that variable will be valid when thread gets executed.
+
+If we use `move` keyword with closure passed to `thread::spawn` closure will take ownership of values it will use from the environment.
+
+```
+use std::thread;
+
+fn main() {
+    let v = vec![1, 2, 3];
+
+    let hanlde = thread::spawn(move || {
+        println!("Here is a vector: {:?}", v);
+    });
+
+    handle.join().unwrap();
+}
+```
