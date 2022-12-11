@@ -80,3 +80,31 @@ fn main() {
     handle.join().unwrap();
 }
 ```
+
+#### Message Passing Between Threads
+
+Message passing is used to transfer data between threads. Rust uses `clannels` for sending data from one thread to another.
+Example:
+
+```
+use std::sync::mpsc;
+use std::thread;
+
+fn main() {
+    let (tx, rx) = mpsc::channel();
+
+    thread::spawn(move || {
+        let val = String::from("hi");
+        tx.send(val).unwrap();
+    });
+
+    let received = rx.recv().unwrap();
+    prntln!("Got: {}", received);
+}
+```
+
+`mpsc` stand fro multiple producer single consumer. Ifthe receiver is already dropped `send` method will return an error. Receiver has 2 methods `recv` and `try_recv`. `recv` blocks the main thread but `try_recv` does not.
+
+The `send` function takes the ownership of its parameter, and when the value is moved, the receiver takes the ownership.
+
+Mutiple producers can be created by cloning the transmitter.
