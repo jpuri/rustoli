@@ -17,3 +17,9 @@ pub fn create_task(connection: &SqliteConnection, title: &str) {
         .execute(connection)
         .expect("Error inserting new task");
 }
+
+pub fn query_task(connection: &SqliteConnection) -> Vec<models::Task> {
+    schema::task::table
+        .load::<models::Task>(connection)
+        .expect("Error loading tasks")
+}
