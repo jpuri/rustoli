@@ -5,3 +5,4 @@
 /Projects/**/pkg/
 /Projects/**/wasm-pack.log
 /Projects/**/www/node_modules
+/Projects/target
