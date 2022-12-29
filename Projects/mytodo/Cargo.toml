@@ -7,3 +7,10 @@ edition = "2021"
 
 [dependencies]
 diesel = { version = "1.0.0", features = ["sqlite"] }
+rocket = "0.4.2"
+serde = { version = "1.0", features = ["derive"] }
+
+[dependencies.rocket_contrib]
+version = "0.4.2"
+default-features = false
+features = ["json"]
